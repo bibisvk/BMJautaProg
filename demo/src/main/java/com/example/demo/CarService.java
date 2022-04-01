@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 @Service
 public class CarService {
+
     private final CarRepository carRepository;
 
     public CarService(CarRepository carRepository) {
