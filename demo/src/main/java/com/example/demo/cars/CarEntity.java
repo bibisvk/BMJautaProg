@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.cars;
 
 import javax.persistence.*;
 import java.util.Date;

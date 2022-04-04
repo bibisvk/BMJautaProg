@@ -1,6 +1,10 @@
-package com.example.demo;
+package com.example.demo.customers;
+import javax.persistence.*;
 
-public class CustomerDto {
+@Entity
+public class CustomerEntity {
+    @Id
+    @GeneratedValue
     private int customer_id;
     private String identification_number;
     private String customer_firstname;
