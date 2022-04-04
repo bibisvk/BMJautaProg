@@ -19,78 +19,67 @@ public class CustomerService {
     }
 
     private static CustomerDto mapToCustomerDto(CustomerEntity customerEntity) {
-        CarDto carDto = new CarDto();
+        CustomerDto customerDto = new CustomerDto();
 
-        carDto.setId(carEntity.getId());
-        carDto.setPrice(carEntity.getPrice());
-        carDto.setDoors(carEntity.getDoors());
-        carDto.setPersons(carEntity.getPersons());
-        carDto.setLug_boot(carEntity.getLug_boot());
-        carDto.setSafety(carEntity.getSafety());
-        carDto.setEKEndDate(carEntity.getEKEndDate());
-        carDto.setPZPEndDate(carEntity.getPZPEndDate());
-        carDto.setTKEndDate(carEntity.getTKEndDate());
+        customerDto.setCustomer_id(customerEntity.getCustomer_id());
+        customerDto.setIdentification_number(customerEntity.getIdentification_number());
+        customerDto.setCustomer_firstname(customerEntity.getCustomer_firstname());
+        customerDto.setCustomer_lastname(customerEntity.getCustomer_lastname());
+        customerDto.setO_number(customerEntity.getO_number());
 
-        return carDto;
+        return customerDto;
     }
 
     @Transactional
-    public List<CarDto> getCars(String carName) {
-        List<CarDto> ret = new LinkedList<>();
-        for (CarEntity c1 : carRepository.findAll()) {
-            CarDto c2 = mapToCarDto(c1);
+    public List<CustomerDto> getCustomers(String customerName) {
+        List<CustomerDto> ret = new LinkedList<>();
+        for (CustomerEntity c1 : customerRepository.findAll()) {
+            CustomerDto c2 = mapToCustomerDto(c1);
             ret.add(c2);
         }
         return ret;
     }
 
     @Transactional
-    public int createCar(CarDto carDto) {
-        CarEntity carEntity = new CarEntity();
+    public int createCustomer(CustomerDto customerDto) {
+        CustomerEntity customerEntity = new CustomerEntity();
 
-        carEntity.setPrice(carDto.getPrice());
-        carEntity.setDoors(carDto.getDoors());
-        carEntity.setPersons(carDto.getPersons());
-        carEntity.setLug_boot(carDto.getLug_boot());
-        carEntity.setSafety(carDto.getSafety());
-        carEntity.setEKEndDate(carDto.getEKEndDate());
-        carEntity.setPZPEndDate(carDto.getPZPEndDate());
-        carEntity.setTKEndDate(carDto.getTKEndDate());
+        customerEntity.setIdentification_number(customerDto.getIdentification_number());
+        customerEntity.setCustomer_firstname(customerDto.getCustomer_firstname());
+        customerEntity.setCustomer_lastname(customerDto.getCustomer_lastname());
+        customerEntity.setO_number(customerDto.getO_number());
 
-        this.carRepository.save(carEntity);
+        this.customerRepository.save(customerEntity);
 
-        return carEntity.getId();
+        return customerEntity.getId();
     }
 
     @Transactional
-    public CarDto getCar(int carId) {
-        Optional<CarEntity> byId = carRepository.findById(carId);
+    public CustomerDto getCustomer(int customerId) {
+        Optional<CustomerEntity> byId = customerRepository.findById(customerId);
         if (byId.isPresent()) {
-            return mapToCarDto(byId.get());
+            return mapToCustomerDto(byId.get());
         }
         return null;
     }
 
     @Transactional
-    public void deleteCar(int carId) {
-        Optional<CarEntity> byId = carRepository.findById(carId);
+    public void deleteCustomer(int customerId) {
+        Optional<CustomerEntity> byId = customerRepository.findById(customerId);
         if (byId.isPresent()) {
-            carRepository.delete(byId.get());
+            customerRepository.delete(byId.get());
         }
     }
 
     @Transactional
-    public void updateCar(int carId, CarDto carDto) {
-        Optional<CarEntity> byId = carRepository.findById(carId);
+    public void updateCustomer(int customerId, CustomerDto customerDto) {
+        Optional<CustomerEntity> byId = customerRepository.findById(customerId);
         if (byId.isPresent()) {
-            byId.get().setPrice(carDto.getPrice());
-            byId.get().setSafety(carDto.getSafety());
-            byId.get().setLug_boot(carDto.getLug_boot());
-            byId.get().setPersons(carDto.getPersons());
-            byId.get().setDoors(carDto.getDoors());
-            byId.get().setEKEndDate(carDto.getEKEndDate());
-            byId.get().setPZPEndDate(carDto.getPZPEndDate());
-            byId.get().setTKEndDate(carDto.getTKEndDate());
+
+            byId.get().setIdentification_number(customerDto.getIdentification_number());
+            byId.get().setCustomer_firstname(customerDto.getCustomer_firstname());
+            byId.get().setCustomer_lastname(customerDto.getCustomer_lastname());
+            byId.get().setO_number(customerDto.getO_number());
         }
     }
 }
