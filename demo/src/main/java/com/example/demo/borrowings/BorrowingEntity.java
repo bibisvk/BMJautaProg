@@ -20,28 +20,11 @@ public class BorrowingEntity {
     @JoinColumn(name = "carId")
     @ManyToOne(fetch = FetchType.LAZY)
     private CarEntity borrowedCar;
-    private int personalNumber;
-    private int carNumber;
+
     private Date borrowingStartDate;
+
     private Date borrowingEndDate;
-    private int customerId;
-    private int carId;
 
-    public int getPersonalNumber() {
-        return personalNumber;
-    }
-
-    public void setPersonalNumber(int personalNumber) {
-        this.personalNumber = personalNumber;
-    }
-
-    public int getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(int carNumber) {
-        this.carNumber = carNumber;
-    }
 
     public Date getBorrowingStartDate() {
         return borrowingStartDate;
@@ -59,21 +42,7 @@ public class BorrowingEntity {
         this.borrowingEndDate = borrowingEndDate;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public int getCarId() {
-        return carId;
-    }
-
-    public void setCarId(int carId) {
-        this.carId = carId;
-    }
 
     public void setBorrowingId(long borrowingId) {
         this.borrowingId = borrowingId;

@@ -38,8 +38,8 @@ public class BorrowingService {
         BorrowingDto borrowingDto = new BorrowingDto();
 
         borrowingDto.setBorrowingId(borrowingEntity.getBorrowingId());
-        borrowingDto.setCustomerId(borrowingEntity.getBorrower().getCustomer_id());
-        borrowingDto.setCarId(borrowingEntity.getBorrowedCar().getId());
+        //borrowingDto.setCustomerId(borrowingEntity.getBorrower().getCustomer_id());
+        //borrowingDto.setCarId(borrowingEntity.getBorrowedCar().getId());
 
         return borrowingDto;
     }
@@ -67,15 +67,19 @@ public class BorrowingService {
     public Long createBorrowing(BorrowingDto borrowingDto) {
         BorrowingEntity borrowingEntity = new BorrowingEntity();
 
-        Optional <CustomerEntity> c = customerRepository.findById(borrowingDto.getCustomerId());
-        Optional <CarEntity> b = carRepository.findById(borrowingDto.getCarId());
-
+        //Optional <CustomerEntity> c = customerRepository.findById(borrowingDto.getCustomerId());
+        Optional <CarEntity> b = carRepository.findById(borrowingDto.getCarDto().getId());
+/*
         if(c.isPresent()) {
             borrowingEntity.setBorrower(c.get());
         }
+
+ */
         if(b.isPresent()) {
             borrowingEntity.setBorrowedCar(b.get());
         }
+        borrowingDto.setBorrowingStartDate(borrowingEntity.getBorrowingStartDate());
+        borrowingDto.setBorrowingEndDate(borrowingEntity.getBorrowingEndDate());
 
         this.borrowingRepository.save(borrowingEntity);
 
@@ -88,12 +92,14 @@ public class BorrowingService {
 
         if (borrowingEntity.isPresent()) {
 
-            Optional<CustomerEntity> c = customerRepository.findById(borrowingDto.getCustomerId());
-            Optional<CarEntity> b = carRepository.findById(borrowingDto.getCarId());
-
+            //Optional<CustomerEntity> c = customerRepository.findById(borrowingDto.getCustomerId());
+            Optional <CarEntity> b = carRepository.findById(borrowingDto.getCarDto().getId());
+/*
             if(c.isPresent()) {
                 borrowingEntity.get().setBorrower(c.get());
             }
+            
+ */
             if(b.isPresent()) {
                 borrowingEntity.get().setBorrowedCar(b.get());
             }
