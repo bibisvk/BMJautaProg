@@ -38,6 +38,7 @@ public class BorrowingService {
         BorrowingDto borrowingDto = new BorrowingDto();
 
         borrowingDto.setBorrowingId(borrowingEntity.getBorrowingId());
+        //TODO setovanie parametrov
         //borrowingDto.setCustomerId(borrowingEntity.getBorrower().getCustomer_id());
         //borrowingDto.setCarId(borrowingEntity.getBorrowedCar().getId());
         //TODO nove DTO na zobrazovanie
