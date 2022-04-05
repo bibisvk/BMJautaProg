@@ -1,6 +1,7 @@
 package com.example.demo.borrowings;
 
 import com.example.demo.cars.CarDto;
+import com.example.demo.customers.CustomerDto;
 
 import java.util.Date;
 
@@ -9,6 +10,16 @@ public class BorrowingDto {
     private Date borrowingStartDate;
     private Date borrowingEndDate;
     private CarDto carDto;
+
+    public CustomerDto getCustomerDto() {
+        return customerDto;
+    }
+
+    public void setCustomerDto(CustomerDto customerDto) {
+        this.customerDto = customerDto;
+    }
+
+    private CustomerDto customerDto;
 
 
     public Long getBorrowingId() {
@@ -44,3 +55,4 @@ public class BorrowingDto {
         this.carDto = carDto;
     }
 }
+
