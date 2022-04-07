@@ -54,5 +54,8 @@ public class BorrowingDto {
     public void setCarDto(CarDto carDto) {
         this.carDto = carDto;
     }
+
+    public void setCarDto(int id) {
+    }
 }
 

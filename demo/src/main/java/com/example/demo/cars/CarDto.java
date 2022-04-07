@@ -1,5 +1,8 @@
 package com.example.demo.cars;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CarDto {
@@ -9,9 +12,12 @@ public class CarDto {
     private int persons;
     private String lug_boot;
     private String safety;
-    private Date EKEndDate;
-    private Date TKEndDate;
-    private Date PZPEndDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate EKEndDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate TKEndDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate PZPEndDate;
 
     public int getId() {
         return id;
@@ -61,27 +67,27 @@ public class CarDto {
         this.safety = safety;
     }
 
-    public Date getEKEndDate() {
+    public LocalDate getEKEndDate() {
         return EKEndDate;
     }
 
-    public void setEKEndDate(Date EKEndDate) {
+    public void setEKEndDate(LocalDate EKEndDate) {
         this.EKEndDate = EKEndDate;
     }
 
-    public Date getTKEndDate() {
+    public LocalDate getTKEndDate() {
         return TKEndDate;
     }
 
-    public void setTKEndDate(Date TKEndDate) {
+    public void setTKEndDate(LocalDate TKEndDate) {
         this.TKEndDate = TKEndDate;
     }
 
-    public Date getPZPEndDate() {
+    public LocalDate getPZPEndDate() {
         return PZPEndDate;
     }
 
-    public void setPZPEndDate(Date PZPEndDate) {
+    public void setPZPEndDate(LocalDate PZPEndDate) {
         this.PZPEndDate = PZPEndDate;
     }
 }

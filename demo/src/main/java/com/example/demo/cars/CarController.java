@@ -35,4 +35,8 @@ public class CarController {
     public void updateCar(@PathVariable Integer carId, @RequestBody CarDto carDto){
         carService.updateCar(carId, carDto);
     }
+    @GetMapping("/api/cars/check")
+    public List<CarCheck> checkCars(@RequestParam(required = false) String carInfo){
+        return carService.checkCars(carInfo);
+    }
 }

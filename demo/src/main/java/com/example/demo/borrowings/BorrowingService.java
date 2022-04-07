@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -38,10 +41,13 @@ public class BorrowingService {
         BorrowingDto borrowingDto = new BorrowingDto();
 
         borrowingDto.setBorrowingId(borrowingEntity.getBorrowingId());
+        borrowingDto.setBorrowingStartDate(borrowingEntity.getBorrowingStartDate());
+        borrowingDto.setBorrowingEndDate(borrowingEntity.getBorrowingEndDate());
+
         //TODO setovanie parametrov
         //borrowingDto.setCustomerId(borrowingEntity.getBorrower().getCustomer_id());
         //borrowingDto.setCarId(borrowingEntity.getBorrowedCar().getId());
-        //TODO nove DTO na zobrazovanie
+
         return borrowingDto;
     }
 

@@ -33,6 +33,17 @@ public class CarService {
         return carDto;
     }
 
+    private static CarCheck mapToCarCheck(CarEntity carEntity){
+        CarCheck carCheck = new CarCheck();
+
+        carCheck.setId(carEntity.getId());
+        carCheck.setEKEndDate(carEntity.getEKEndDate());
+        carCheck.setPZPEndDate(carEntity.getPZPEndDate());
+        carCheck.setTKEndDate(carEntity.getTKEndDate());
+
+        return carCheck;
+    }
+
     @Transactional
     public List<CarDto> getCars(String carName) {
         List<CarDto> ret = new LinkedList<>();
@@ -91,5 +102,15 @@ public class CarService {
             byId.get().setPZPEndDate(carDto.getPZPEndDate());
             byId.get().setTKEndDate(carDto.getTKEndDate());
         }
+    }
+
+    @Transactional
+    public List<CarCheck> checkCars(String carInfo) {
+        List<CarCheck> ret = new LinkedList<>();
+        for (CarEntity c1 : carRepository.findAll()) {
+            CarCheck c2 = mapToCarCheck(c1);
+            ret.add(c2);
+        }
+        return ret;
     }
 }
