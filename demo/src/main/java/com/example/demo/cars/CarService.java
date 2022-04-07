@@ -47,7 +47,7 @@ public class CarService {
     @Transactional
     public List<CarDto> getCars(String carName) {
         List<CarDto> ret = new LinkedList<>();
-        for (CarEntity c1 : carRepository.findAll()) {
+        for (CarEntity c1 : carRepository.findAllByOrderByIdAsc()) {
             CarDto c2 = mapToCarDto(c1);
             ret.add(c2);
         }
@@ -107,7 +107,7 @@ public class CarService {
     @Transactional
     public List<CarCheck> checkCars(String carInfo) {
         List<CarCheck> ret = new LinkedList<>();
-        for (CarEntity c1 : carRepository.findAll()) {
+        for (CarEntity c1 : carRepository.findAllByOrderByIdAsc()) {
             CarCheck c2 = mapToCarCheck(c1);
             ret.add(c2);
         }
