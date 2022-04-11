@@ -51,7 +51,7 @@ public class CustomerService {
 
         this.customerRepository.save(customerEntity);
 
-        return customerEntity.getId();
+        return customerEntity.getCustomer_id();
     }
 
     @Transactional
