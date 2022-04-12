@@ -20,17 +20,10 @@ public class BorrowingDto {
     private LocalDate borrowingStartDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate borrowingEndDate;
-    private String rodneCislo;
+
     //private CarDto carDto;
     //private CustomerDto customerDto;
 
-    public String getRodneCislo() {
-        return rodneCislo;
-    }
-
-    public void setRodneCislo(String rodneCislo) {
-        this.rodneCislo = rodneCislo;
-    }
 
 
     public int getBorrowingId() {

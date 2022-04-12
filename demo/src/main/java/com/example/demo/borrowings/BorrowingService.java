@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -107,8 +104,11 @@ public class BorrowingService {
                 borrowingEntity.get().setBorrowedCar(b.get());
             }
 
-//            borrowingEntity.setBorrowingStartDate(borrowingDto.getBorrowingStartDate());
-//            borrowingEntity.setBorrowingEndDate(borrowingDto.getBorrowingEndDate());
+            borrowingEntity.get().setBorrowingStartDate(borrowingDto.getBorrowingStartDate());
+            borrowingEntity.get().setBorrowingEndDate(borrowingDto.getBorrowingEndDate());
+
+//            borrowingDto.setBorrowingStartDate(borrowingEntity.get().getBorrowingStartDate());
+//            borrowingDto.setBorrowingEndDate(borrowingEntity.get().getBorrowingEndDate());
 
         }
     }
