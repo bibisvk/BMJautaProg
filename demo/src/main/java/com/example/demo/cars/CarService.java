@@ -113,4 +113,8 @@ public class CarService {
         }
         return ret;
     }
+    @Transactional
+    public List<CarEntity> getAllCars(){
+        return carRepository.findAllByOrderByIdAsc();
+    }
 }
