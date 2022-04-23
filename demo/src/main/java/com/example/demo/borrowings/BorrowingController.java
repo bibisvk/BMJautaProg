@@ -1,9 +1,17 @@
 package com.example.demo.borrowings;
 
+import com.example.demo.cars.CarEntity;
+import com.example.demo.cars.CarPDFExport;
 import com.example.demo.cars.CarService;
 import com.example.demo.customers.CustomerService;
+import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -39,5 +47,18 @@ public class BorrowingController {
     @PutMapping("/api/borrowings/{borrowingId}")
     public void updateBorrowing(@PathVariable int borrowingId, @RequestBody BorrowingDto borrowingDto) {
         borrowingService.updateBorrowing(borrowingId, borrowingDto);
+    }
+    @GetMapping("/api/borrowings/pdf")
+    public void generator(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/pdf");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy--MM--dd");
+        String currentDateTime = dateFormat.format(new Date());
+        String headerkey = "Content-Disposition";
+        String headervalue = "attachment; filename=pdf_"+currentDateTime+".pdf";
+        response.setHeader(headerkey, headervalue);
+        List<BorrowingEntity> borrowingEntityList = borrowingService.getAllBorrowings();
+        BorrowingPDFExport borrowingPDFExport = new BorrowingPDFExport();
+        borrowingPDFExport.setBorrowingEntityList(borrowingEntityList);
+        borrowingPDFExport.generate(response);
     }
 }

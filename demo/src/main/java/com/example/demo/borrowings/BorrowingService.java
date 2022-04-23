@@ -107,9 +107,6 @@ public class BorrowingService {
             borrowingEntity.get().setBorrowingStartDate(borrowingDto.getBorrowingStartDate());
             borrowingEntity.get().setBorrowingEndDate(borrowingDto.getBorrowingEndDate());
 
-//            borrowingDto.setBorrowingStartDate(borrowingEntity.get().getBorrowingStartDate());
-//            borrowingDto.setBorrowingEndDate(borrowingEntity.get().getBorrowingEndDate());
-
         }
     }
 
@@ -121,4 +118,8 @@ public class BorrowingService {
         }
     }
 
+    @Transactional
+    public List<BorrowingEntity> getAllBorrowings(){
+        return borrowingRepository.findAll();
+    }
 }
