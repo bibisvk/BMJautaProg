@@ -33,15 +33,15 @@ public class CarService {
         return carDto;
     }
 
-    private static CarCheck mapToCarCheck(CarEntity carEntity){
-        CarCheck carCheck = new CarCheck();
+    private static CarCheckDto mapToCarCheck(CarEntity carEntity){
+        CarCheckDto carCheckDto = new CarCheckDto();
 
-        carCheck.setId(carEntity.getId());
-        carCheck.setEKEndDate(carEntity.getEKEndDate());
-        carCheck.setPZPEndDate(carEntity.getPZPEndDate());
-        carCheck.setTKEndDate(carEntity.getTKEndDate());
+        carCheckDto.setId(carEntity.getId());
+        carCheckDto.setEKEndDate(carEntity.getEKEndDate());
+        carCheckDto.setPZPEndDate(carEntity.getPZPEndDate());
+        carCheckDto.setTKEndDate(carEntity.getTKEndDate());
 
-        return carCheck;
+        return carCheckDto;
     }
 
     @Transactional
@@ -105,10 +105,10 @@ public class CarService {
     }
 
     @Transactional
-    public List<CarCheck> checkCars(String carInfo) {
-        List<CarCheck> ret = new LinkedList<>();
+    public List<CarCheckDto> checkCars(String carInfo) {
+        List<CarCheckDto> ret = new LinkedList<>();
         for (CarEntity c1 : carRepository.findAllByOrderByIdAsc()) {
-            CarCheck c2 = mapToCarCheck(c1);
+            CarCheckDto c2 = mapToCarCheck(c1);
             ret.add(c2);
         }
         return ret;

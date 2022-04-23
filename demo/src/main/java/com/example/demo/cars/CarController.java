@@ -42,7 +42,7 @@ public class CarController {
         carService.updateCar(carId, carDto);
     }
     @GetMapping("/api/cars/check")
-    public List<CarCheck> checkCars(@RequestParam(required = false) String carInfo){
+    public List<CarCheckDto> checkCars(@RequestParam(required = false) String carInfo){
         return carService.checkCars(carInfo);
     }
     @GetMapping("/api/cars/pdf")

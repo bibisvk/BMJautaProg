@@ -3,7 +3,7 @@ package com.example.demo.cars;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class CarCheck {
+public class CarCheckDto {
     private int id;
     private LocalDate EKEndDate;
     private LocalDate TKEndDate;
