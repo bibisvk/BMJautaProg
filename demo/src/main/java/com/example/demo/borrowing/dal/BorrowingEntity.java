@@ -1,12 +1,10 @@
-package com.example.demo.borrowings;
+package com.example.demo.borrowing.dal;
 
 import com.example.demo.cars.CarEntity;
 import com.example.demo.customers.CustomerEntity;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class BorrowingEntity {
@@ -23,9 +21,7 @@ public class BorrowingEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private CarEntity borrowedCar;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate borrowingStartDate;
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate borrowingEndDate;
 
 

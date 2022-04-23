@@ -1,7 +1,9 @@
-package com.example.demo.borrowings;
+package com.example.demo.borrowing.controler;
 
-import com.example.demo.cars.CarEntity;
-import com.example.demo.cars.CarPDFExport;
+import com.example.demo.borrowing.service.BorrowingDto;
+import com.example.demo.borrowing.dal.BorrowingEntity;
+import com.example.demo.borrowing.service.BorrowingPDFExport;
+import com.example.demo.borrowing.service.BorrowingService;
 import com.example.demo.cars.CarService;
 import com.example.demo.customers.CustomerService;
 import com.lowagie.text.DocumentException;
@@ -15,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-public class BorrowingController {
+public class  BorrowingController {
     private BorrowingService borrowingService;
     private CustomerService customerService ;
     private CarService carService;

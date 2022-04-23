@@ -1,5 +1,7 @@
-package com.example.demo.borrowings;
+package com.example.demo.borrowing.service;
 
+import com.example.demo.borrowing.dal.BorrowingEntity;
+import com.example.demo.borrowing.dal.BorrowingRepository;
 import com.example.demo.cars.CarEntity;
 import com.example.demo.cars.CarRepository;
 import com.example.demo.cars.CarService;
