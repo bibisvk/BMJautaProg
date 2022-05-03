@@ -1,5 +1,6 @@
 package com.example.demo.customers;
 
+import com.example.demo.cars.CarEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -80,5 +81,9 @@ public class CustomerService {
             byId.get().setCustomer_lastname(customerDto.getCustomer_lastname());
             byId.get().setO_number(customerDto.getO_number());
         }
+    }
+    @Transactional
+    public List<CustomerEntity> getAllCustomers(){
+        return customerRepository.findAllByOrderByIdAsc();
     }
 }
