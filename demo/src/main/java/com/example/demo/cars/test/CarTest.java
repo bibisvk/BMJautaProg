@@ -26,6 +26,4 @@ public class CarTest {
         Assert.assertNotNull(car1);
     }
 
-
-
 }
