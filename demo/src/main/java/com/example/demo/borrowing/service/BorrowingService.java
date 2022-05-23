@@ -8,10 +8,12 @@ import com.example.demo.cars.service.CarService;
 import com.example.demo.customers.CustomerEntity;
 import com.example.demo.customers.CustomerRepository;
 import com.example.demo.customers.CustomerService;
+import com.example.demo.exceptions.WrongDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -68,7 +70,7 @@ public class BorrowingService {
     }
 
     @Transactional
-    public int createBorrowing(BorrowingDto borrowingDto) {
+    public int createBorrowing(BorrowingDto borrowingDto) throws WrongDate {
         BorrowingEntity borrowingEntity = new BorrowingEntity();
 
         Optional <CustomerEntity> c = customerRepository.findById(Math.toIntExact(borrowingDto.getCustomerId()));
@@ -81,8 +83,16 @@ public class BorrowingService {
         if(b.isPresent()) {
             borrowingEntity.setBorrowedCar(b.get());
         }
-        borrowingEntity.setBorrowingStartDate(borrowingDto.getBorrowingStartDate());
-        borrowingEntity.setBorrowingEndDate(borrowingDto.getBorrowingEndDate());
+
+        LocalDate s = borrowingDto.getBorrowingStartDate();
+        LocalDate e = borrowingDto.getBorrowingEndDate();
+        int diff = s.compareTo(e);
+        if(diff > 0) {
+            throw new WrongDate();
+        }else {
+            borrowingEntity.setBorrowingStartDate(borrowingDto.getBorrowingStartDate());
+            borrowingEntity.setBorrowingEndDate(borrowingDto.getBorrowingEndDate());
+        }
 
         this.borrowingRepository.save(borrowingEntity);
 

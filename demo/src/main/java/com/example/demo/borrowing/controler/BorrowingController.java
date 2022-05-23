@@ -6,6 +6,7 @@ import com.example.demo.borrowing.service.BorrowingPDFExport;
 import com.example.demo.borrowing.service.BorrowingService;
 import com.example.demo.cars.service.CarService;
 import com.example.demo.customers.CustomerService;
+import com.example.demo.exceptions.WrongDate;
 import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class  BorrowingController {
     }
 
     @PostMapping("/api/borrowings")
-    public int createBorrowing(@RequestBody BorrowingDto borrowingDto){
+    public int createBorrowing(@RequestBody BorrowingDto borrowingDto) throws WrongDate {
         return borrowingService.createBorrowing(borrowingDto);
     }
 
