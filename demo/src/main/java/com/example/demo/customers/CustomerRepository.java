@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface CustomerRepository extends CrudRepository<CustomerEntity, Integer> {
 
-    List<CustomerEntity> findAllByOrderByIdAsc();
+    @Override
+    List<CustomerEntity> findAll();
 }

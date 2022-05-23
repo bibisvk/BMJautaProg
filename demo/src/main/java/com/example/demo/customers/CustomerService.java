@@ -84,6 +84,6 @@ public class CustomerService {
     }
     @Transactional
     public List<CustomerEntity> getAllCustomers(){
-        return customerRepository.findAllByOrderByIdAsc();
+        return customerRepository.findAll();
     }
 }

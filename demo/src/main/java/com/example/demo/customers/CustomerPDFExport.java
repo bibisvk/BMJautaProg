@@ -33,9 +33,9 @@ public class CustomerPDFExport {
 
         document.add(paragraph);
 
-        PdfPTable table = new PdfPTable(9);
+        PdfPTable table = new PdfPTable(5);
         table.setWidthPercentage(100f);
-        table.setWidths(new int[] {1,2,2,2,2,3,3,3,3});
+        table.setWidths(new int[] {1,2,2,3,3});
         table.setSpacingBefore(5);
 
         PdfPCell cell = new PdfPCell();
@@ -46,19 +46,19 @@ public class CustomerPDFExport {
         Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN);
         font.setColor(Color.WHITE);
 
-        cell.setPhrase(new Phrase("customer_id", font));
+        cell.setPhrase(new Phrase("ID", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("identification_number", font));
+        cell.setPhrase(new Phrase("R_cislo", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("customer_firstname", font));
+        cell.setPhrase(new Phrase("Meno", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("customer_lastname", font));
+        cell.setPhrase(new Phrase("Priezvisko", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("o_number", font));
+        cell.setPhrase(new Phrase("C_obcianskeho", font));
         table.addCell(cell);
 
         for(CustomerEntity customerEntity : customerEntityList){
