@@ -4,6 +4,7 @@ import com.example.demo.cars.dal.CarRepository;
 import com.example.demo.cars.dal.CarEntity;
 import com.example.demo.cars.service.CarCheckDto;
 import com.example.demo.cars.service.CarDto;
+import com.example.demo.exceptions.WrongNumberOfDoors;
 import org.springframework.stereotype.Service;
 
 
@@ -59,11 +60,16 @@ public class CarService {
     }
 
     @Transactional
-    public int createCar(CarDto carDto) {
+    public int createCar(CarDto carDto) throws WrongNumberOfDoors {
         CarEntity carEntity = new CarEntity();
 
+        if(carDto.getDoors()>5){
+            throw new WrongNumberOfDoors();
+        }else{
+            carEntity.setDoors(carDto.getDoors());
+        }
+
         carEntity.setPrice(carDto.getPrice());
-        carEntity.setDoors(carDto.getDoors());
         carEntity.setPersons(carDto.getPersons());
         carEntity.setLug_boot(carDto.getLug_boot());
         carEntity.setSafety(carDto.getSafety());

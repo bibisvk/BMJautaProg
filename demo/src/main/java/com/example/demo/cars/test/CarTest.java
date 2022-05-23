@@ -26,4 +26,18 @@ public class CarTest {
         Assert.assertNotNull(car1);
     }
 
+    @Test
+    public void CarShouldNotHaveMoreThan5Doors(){
+        CarEntity car1 = new CarEntity();
+        car1.setDoors(10);
+        car1.setPersons(2);
+        car1.setLug_boot("small");
+        car1.setPrice("low");
+        car1.setSafety("med");
+        car1.setEKEndDate(LocalDate.parse("2004-10-02"));
+        car1.setTKEndDate(LocalDate.parse("2004-10-02"));
+        car1.setPZPEndDate(LocalDate.parse("2004-10-02"));
+        Assert.assertFalse(car1.getDoors()<5);
+    }
+
 }

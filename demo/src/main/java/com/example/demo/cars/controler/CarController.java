@@ -5,6 +5,7 @@ import com.example.demo.cars.service.CarCheckDto;
 import com.example.demo.cars.service.CarDto;
 import com.example.demo.cars.service.CarPDFExport;
 import com.example.demo.cars.service.CarService;
+import com.example.demo.exceptions.WrongNumberOfDoors;
 import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,7 @@ public class CarController {
     }
 
     @PostMapping("/api/cars")
-    public int createCar(@RequestBody CarDto carDto){
+    public int createCar(@RequestBody CarDto carDto) throws WrongNumberOfDoors {
         return carService.createCar(carDto);
     }
 
