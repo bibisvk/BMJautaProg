@@ -1,6 +1,6 @@
-package com.example.demo.cars;
+package com.example.demo.cars.dal;
 
-import org.springframework.data.domain.Sort;
+import com.example.demo.cars.dal.CarEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,9 +2,9 @@ package com.example.demo.borrowing.service;
 
 import com.example.demo.borrowing.dal.BorrowingEntity;
 import com.example.demo.borrowing.dal.BorrowingRepository;
-import com.example.demo.cars.CarEntity;
-import com.example.demo.cars.CarRepository;
-import com.example.demo.cars.CarService;
+import com.example.demo.cars.dal.CarEntity;
+import com.example.demo.cars.dal.CarRepository;
+import com.example.demo.cars.service.CarService;
 import com.example.demo.customers.CustomerEntity;
 import com.example.demo.customers.CustomerRepository;
 import com.example.demo.customers.CustomerService;

@@ -1,5 +1,9 @@
-package com.example.demo.cars;
+package com.example.demo.cars.service;
 
+import com.example.demo.cars.dal.CarRepository;
+import com.example.demo.cars.dal.CarEntity;
+import com.example.demo.cars.service.CarCheckDto;
+import com.example.demo.cars.service.CarDto;
 import org.springframework.stereotype.Service;
 
 

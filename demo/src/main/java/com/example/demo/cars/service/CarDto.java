@@ -1,17 +1,12 @@
-package com.example.demo.cars;
+package com.example.demo.cars.service;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Entity
-public class CarEntity {
-    @Id
-    @GeneratedValue
+public class CarDto {
     private int id;
-
     private String price;
     private int doors;
     private int persons;

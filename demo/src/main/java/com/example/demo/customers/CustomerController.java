@@ -1,7 +1,5 @@
 package com.example.demo.customers;
 
-import com.example.demo.cars.CarEntity;
-import com.example.demo.cars.CarPDFExport;
 import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,5 +1,6 @@
-package com.example.demo.cars;
+package com.example.demo.cars.service;
 
+import com.example.demo.cars.dal.CarEntity;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;

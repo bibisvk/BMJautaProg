@@ -1,12 +1,17 @@
-package com.example.demo.cars;
+package com.example.demo.cars.dal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class CarDto {
+@Entity
+public class CarEntity {
+    @Id
+    @GeneratedValue
     private int id;
+
     private String price;
     private int doors;
     private int persons;

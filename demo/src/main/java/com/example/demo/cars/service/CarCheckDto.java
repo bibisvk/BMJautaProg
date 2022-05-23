@@ -1,4 +1,4 @@
-package com.example.demo.cars;
+package com.example.demo.cars.service;
 
 import java.time.LocalDate;
 import java.util.Date;

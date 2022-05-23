@@ -1,6 +1,6 @@
 package com.example.demo.borrowing.dal;
 
-import com.example.demo.cars.CarEntity;
+import com.example.demo.cars.dal.CarEntity;
 import com.example.demo.customers.CustomerEntity;
 
 import javax.persistence.*;

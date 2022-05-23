@@ -1,6 +1,5 @@
 package com.example.demo.customers;
 
-import com.example.demo.cars.CarEntity;
 import org.springframework.stereotype.Service;
 
 
