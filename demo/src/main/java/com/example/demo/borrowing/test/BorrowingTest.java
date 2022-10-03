@@ -1,14 +1,10 @@
 package com.example.demo.borrowing.test;
 
 import com.example.demo.borrowing.dal.BorrowingEntity;
-import com.example.demo.borrowing.dal.BorrowingRepository;
-import com.example.demo.cars.dal.CarEntity;
-import com.example.demo.cars.dal.CarRepository;
+import com.example.demo.borrowing.cars.dal.CarEntity;
 import com.example.demo.customers.CustomerEntity;
-import com.example.demo.customers.CustomerRepository;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
 
 import java.time.LocalDate;
 
