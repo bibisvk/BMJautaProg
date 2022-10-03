@@ -4,7 +4,7 @@ import com.example.demo.borrowing.service.BorrowingDto;
 import com.example.demo.borrowing.dal.BorrowingEntity;
 import com.example.demo.borrowing.service.BorrowingPDFExport;
 import com.example.demo.borrowing.service.BorrowingService;
-import com.example.demo.cars.service.CarService;
+import com.example.demo.borrowing.cars.service.CarService;
 import com.example.demo.customers.CustomerService;
 import com.example.demo.exceptions.WrongDate;
 import com.lowagie.text.DocumentException;
