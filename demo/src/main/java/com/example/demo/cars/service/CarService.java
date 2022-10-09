@@ -77,9 +77,9 @@ public class CarService {
         carEntity.setPZPEndDate(carDto.getPZPEndDate());
         carEntity.setTKEndDate(carDto.getTKEndDate());
 
-        this.carRepository.save(carEntity);
+        return this.carRepository.save(carEntity).getId();
 
-        return carEntity.getId();
+//        return carEntity.getId();
     }
 
     @Transactional

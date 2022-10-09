@@ -27,7 +27,7 @@ public class CarServiceTest {
 
     @Test
     public void setCarServiceSaveValid() throws WrongNumberOfDoors {
-        int generatedId = 0;
+        int generatedId = 1;
 
         CarEntity fakeEntity = new CarEntity().setId(generatedId)
                 .setPrice("medium")
