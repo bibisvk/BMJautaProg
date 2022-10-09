@@ -1,16 +1,20 @@
-package com.example.demo.cars.service;
+package com.example.demo.borrowing.cars.dal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @Accessors(chain = true)
-public class CarDto {
+public class CarEntity {
+    @Id
+    @GeneratedValue
     private int id;
+
     private String price;
     private int doors;
     private int persons;
@@ -22,5 +26,6 @@ public class CarDto {
     private LocalDate TKEndDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate PZPEndDate;
+
 
 }

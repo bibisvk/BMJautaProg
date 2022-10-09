@@ -1,6 +1,5 @@
-package com.example.demo.cars.dal;
+package com.example.demo.borrowing.cars.dal;
 
-import com.example.demo.cars.dal.CarEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

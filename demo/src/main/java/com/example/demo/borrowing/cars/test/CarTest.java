@@ -1,8 +1,6 @@
-package com.example.demo.cars.test;
+package com.example.demo.borrowing.cars.test;
 
-import com.example.demo.cars.controler.CarController;
-import com.example.demo.cars.dal.CarEntity;
-import com.example.demo.cars.service.CarService;
+import com.example.demo.borrowing.cars.dal.CarEntity;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,9 +1,9 @@
 package com.example.demo;
 
-import com.example.demo.cars.dal.CarEntity;
-import com.example.demo.cars.dal.CarRepository;
-import com.example.demo.cars.service.CarDto;
-import com.example.demo.cars.service.CarService;
+import com.example.demo.borrowing.cars.dal.CarEntity;
+import com.example.demo.borrowing.cars.dal.CarRepository;
+import com.example.demo.borrowing.cars.service.CarDto;
+import com.example.demo.borrowing.cars.service.CarService;
 import com.example.demo.exceptions.WrongNumberOfDoors;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

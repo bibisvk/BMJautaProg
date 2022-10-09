@@ -1,10 +1,10 @@
-package com.example.demo.cars.controler;
+package com.example.demo.borrowing.cars.controler;
 
-import com.example.demo.cars.dal.CarEntity;
-import com.example.demo.cars.service.CarCheckDto;
-import com.example.demo.cars.service.CarDto;
-import com.example.demo.cars.service.CarPDFExport;
-import com.example.demo.cars.service.CarService;
+import com.example.demo.borrowing.cars.dal.CarEntity;
+import com.example.demo.borrowing.cars.service.CarCheckDto;
+import com.example.demo.borrowing.cars.service.CarDto;
+import com.example.demo.borrowing.cars.service.CarPDFExport;
+import com.example.demo.borrowing.cars.service.CarService;
 import com.example.demo.exceptions.WrongNumberOfDoors;
 import com.lowagie.text.DocumentException;
 import org.springframework.web.bind.annotation.*;
