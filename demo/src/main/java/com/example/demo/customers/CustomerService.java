@@ -1,6 +1,8 @@
 package com.example.demo.customers;
 
+import com.example.demo.borrowing.cars.service.CarDto;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 
 import javax.transaction.Transactional;
@@ -85,4 +87,12 @@ public class CustomerService {
     public List<CustomerEntity> getAllCustomers(){
         return customerRepository.findAll();
     }
+
+    private static void simpleInputValidation(CustomerDto dto) {
+        if (   ! StringUtils.hasText(dto.getCustomer_firstname())
+                || ! StringUtils.hasText(dto.getCustomer_lastname())) {
+            throw new IllegalArgumentException("Something went wrong");
+        }
+    }
+
 }

@@ -1,10 +1,14 @@
 package com.example.demo.customers;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
+@Accessors(chain = true)
 @Entity
 public class CustomerEntity {
     @Id
@@ -15,43 +19,5 @@ public class CustomerEntity {
     private String customer_lastname;
     private String o_number;
 
-    public int getCustomer_id() {
-        return customer_id;
-    }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
-    }
-
-    public String getIdentification_number() {
-        return identification_number;
-    }
-
-    public void setIdentification_number(String identification_number) {
-        this.identification_number = identification_number;
-    }
-
-    public String getCustomer_firstname() {
-        return customer_firstname;
-    }
-
-    public void setCustomer_firstname(String customer_firstname) {
-        this.customer_firstname = customer_firstname;
-    }
-
-    public String getCustomer_lastname() {
-        return customer_lastname;
-    }
-
-    public void setCustomer_lastname(String customer_lastname) {
-        this.customer_lastname = customer_lastname;
-    }
-
-    public String getO_number() {
-        return o_number;
-    }
-
-    public void setO_number(String o_number) {
-        this.o_number = o_number;
-    }
 }

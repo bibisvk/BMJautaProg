@@ -2,8 +2,10 @@ package com.example.demo.borrowing.cars.service;
 
 import com.example.demo.borrowing.cars.dal.CarRepository;
 import com.example.demo.borrowing.cars.dal.CarEntity;
+import com.example.demo.carMapper;
 import com.example.demo.exceptions.WrongNumberOfDoors;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 
 import javax.transaction.Transactional;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
 public class CarService {
 
     private final CarRepository carRepository;
@@ -35,6 +38,7 @@ public class CarService {
 
         return carDto;
     }
+    private carMapper mapper;
 
     private static CarCheckDto mapToCarCheck(CarEntity carEntity){
         CarCheckDto carCheckDto = new CarCheckDto();
@@ -125,4 +129,5 @@ public class CarService {
     public List<CarEntity> getAllCars(){
         return carRepository.findAllByOrderByIdAsc();
     }
+
 }

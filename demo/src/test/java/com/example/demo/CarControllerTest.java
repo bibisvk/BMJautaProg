@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.time.LocalDate;
 
 import com.example.demo.borrowing.cars.service.CarDto;
 import com.example.demo.borrowing.cars.service.CarService;
@@ -15,6 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.time.LocalDate;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -32,12 +33,12 @@ public class CarControllerTest {
     @MockBean
     private CarService carService;
 
-   //private static ObjectMapper mapper = new ObjectMapper();
-    private static ObjectMapper mapper = JsonMapper.builder()
+   private static ObjectMapper mapper = new ObjectMapper();
+   /*private static ObjectMapper mapper = JsonMapper.builder()
            .findAndAddModules()
            .build();
+*/
 
-    //private static ObjectMapper mapper = new ObjectMapper();
     @Test
     @SneakyThrows
     public void createCar() {

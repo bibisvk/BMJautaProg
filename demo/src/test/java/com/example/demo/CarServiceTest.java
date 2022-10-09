@@ -7,12 +7,13 @@ import com.example.demo.borrowing.cars.service.CarService;
 import com.example.demo.exceptions.WrongNumberOfDoors;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -27,7 +28,7 @@ public class CarServiceTest {
 
     @Test
     public void setCarServiceSaveValid() throws WrongNumberOfDoors {
-        int generatedId = 1;
+        int generatedId = 0;
 
         CarEntity fakeEntity = new CarEntity().setId(generatedId)
                 .setPrice("medium")
