@@ -37,9 +37,10 @@ public class CarControllerTest {
            .findAndAddModules()
            .build();
 
+    //private static ObjectMapper mapper = new ObjectMapper();
     @Test
     @SneakyThrows
-    public void saveCar() {
+    public void createCar() {
         when(carService.createCar(any())).thenReturn(1);
 
         CarDto dto = new CarDto().setId(4)
