@@ -43,6 +43,8 @@ public class CustomerService {
 
     @Transactional
     public int createCustomer(CustomerDto customerDto) {
+
+        //Integer.valueOf(customerDto.)
         CustomerEntity customerEntity = new CustomerEntity();
 
         customerEntity.setIdentification_number(customerDto.getIdentification_number());

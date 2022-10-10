@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import com.example.demo.borrowing.cars.controler.CarController;
 import com.example.demo.borrowing.cars.service.CarDto;
 import com.example.demo.borrowing.cars.service.CarService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,8 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(MockitoExtension.class)
-
+@WebMvcTest(CarController.class)
 public class CarControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -49,10 +49,10 @@ public class CarControllerTest {
                 .setDoors(5)
                 .setPersons(5)
                 .setLug_boot("very much")
-                .setSafety("on board")
-                .setEKEndDate(LocalDate.parse("2023-05-12"))
-                .setTKEndDate(LocalDate.parse("2023-05-12"))
-                .setPZPEndDate(LocalDate.parse("2025-05-12"));
+                .setSafety("on board");
+                //.setEKEndDate(LocalDate.parse("2023-05-12"))
+                //.setTKEndDate(LocalDate.parse("2023-05-12"))
+                //.setPZPEndD ate(LocalDate.parse("2025-05-12"));
         String json = mapper.writeValueAsString(dto);
 
         mockMvc.perform(

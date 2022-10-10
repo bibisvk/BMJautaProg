@@ -7,6 +7,8 @@ import com.example.demo.borrowing.cars.service.CarPDFExport;
 import com.example.demo.borrowing.cars.service.CarService;
 import com.example.demo.exceptions.WrongNumberOfDoors;
 import com.lowagie.text.DocumentException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +31,9 @@ public class CarController {
     }
 
     @PostMapping("/api/cars")
-    public int createCar(@RequestBody CarDto carDto) throws WrongNumberOfDoors {
-        return carService.createCar(carDto);
+    public ResponseEntity<Integer> createCar(@RequestBody CarDto carDto) throws WrongNumberOfDoors {
+        int id = carService.createCar(carDto);
+        return new ResponseEntity<>(id, HttpStatus.CREATED);
     }
 
     @GetMapping("/api/cars/{carId}")
