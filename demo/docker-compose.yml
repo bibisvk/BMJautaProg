@@ -1,12 +1,12 @@
 version: "3.3"
 
 services:
-  library:
+  library-db:
     restart: always
     image: sameersbn/postgresql:10-2
     environment:
       - PG_TRUST_LOCALNET=true
-      - DB_NAME=carrental
+      - DB_NAME=library
       - DB_USER=postgres
       - DB_PASS=postgres
       - PG_RUNDIR=/run/postgres
@@ -17,7 +17,8 @@ services:
       - data:/var/carrental/postgresql
       - logs:/var/log/postgresql
 
-
+  docker-demo:
+    image: docker-demo
 
 volumes:
   data:
