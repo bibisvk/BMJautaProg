@@ -17,6 +17,8 @@ services:
       - data:/var/carrental/postgresql
       - logs:/var/log/postgresql
 
+
+
 volumes:
   data:
   logs:
