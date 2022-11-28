@@ -14,11 +14,26 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - data:/var/carrental/postgresql
+      - data:/var/library/postgresql
       - logs:/var/log/postgresql
 
+  keycloak:
+    restart: always
+    image: quay.io/keycloak/keycloak:18.0.0
+    command: start-dev
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8090:8080"
+
   docker-demo:
-    image: docker-demo
+    image: bibisvk/docker-demo
+
+  pozicovna-aut:
+    image: pozicovna-aut
+    ports:
+      - "80:80"
 
 volumes:
   data:
