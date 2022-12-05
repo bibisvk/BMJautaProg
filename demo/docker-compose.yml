@@ -29,6 +29,8 @@ services:
 
   docker-demo:
     image: bibisvk/docker-demo
+    ports:
+      - "8080:8080"
 
   pozicovna-aut:
     image: pozicovna-aut
